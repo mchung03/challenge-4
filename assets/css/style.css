@@ -52,25 +52,6 @@ main {
     margin-bottom: 4rem;
 }
 
-.submit-button {
-    background-color: rgb(221, 219, 219);
-    font-size: 30px;
-    border-radius: 20px;
-    border: 3px solid black;
-    margin-top: 2rem;
-    box-shadow: 0 5px grey;
-}
-
-.submit-button:hover {
-    background-color: rgb(177, 177, 177);
-}
-
-.submit-button:active {
-    background-color: rgb(177, 177, 177);
-    box-shadow: 0 2px grey;
-    transform: translateY(3px);
-}
-
 footer {
     position: relative;
     bottom: 0;
