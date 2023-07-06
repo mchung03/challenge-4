@@ -16,6 +16,32 @@ main {
     font-size: 35px;
 }
 
+.start-box {
+    border: 3px solid black;
+    padding: 4rem;
+    margin-top: 8rem;
+    margin-right: 3rem;
+}
+
+.start-button {
+    font-size: 30px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 0 5px grey;
+}
+
+.start-button:hover {
+    background-color: antiquewhite;
+}
+
+.start-button:active {
+    background-color: antiquewhite;
+    box-shadow: 0 3px grey;
+    transform: translateY(3px);
+}
+
 .answers {
     display: flex;
     flex-direction: column;
@@ -45,7 +71,7 @@ main {
 }
 
 footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     font-size: 14px;
 }
