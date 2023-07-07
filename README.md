@@ -10,11 +10,14 @@ N/A
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+This is the starting page of the quiz when directed to the website.
+![start page](assets/images/start.PNG)
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
+The timer will start countind down after you press the start button and you will be redirected to the quiz screen.
+![countdown timer](assets/images/countdown.PNG)
 
-![alt text](assets/images/screenshot.png)
+Once the timer reaches 0 and you don't complete the quiz in time, the website will alert you!
+![timer at 0](assets/images/timer.PNG)
 
 ## Credits
 

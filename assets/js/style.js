@@ -44,10 +44,10 @@ function start() {
 
 // Switches to screen with first question
 // Array for each question
-function displayQuestion() {
-    questionNumber.textContent = 
-    questionText.textContent = 
-}
+// function displayQuestion() {
+//     questionNumber.textContent = 
+//     questionText.textContent = 
+// }
 
 //If answer right, move on to next question
 //If answer wrong, subtract 5 seconds
@@ -74,7 +74,7 @@ function setTime() {
 function sendMessage() {
     alert("You ran out of time!")
     confirm("Would you like to be added to the leaderboard?"); {
-        if(confirm === true) {
+        if(confirm == true) {
             // highScore()
         }
     }
@@ -82,16 +82,15 @@ function sendMessage() {
 
 // High score screen
 // Enter initials and submit button
-// function highScore() {
-//     var name = prompt();
-//     var score = secondsLeft;
 
-//     prompt("What is your name?")
+// var name = prompt();
+// var score = secondsLeft;
 
-//     var scoreStr = localStorage.getItem("scores") || "[]"
-//     var scores = JSON.parse(scoreStr)
-//     console.log(scores)
-//     scores.push({name:name, score:score})
-//     scoreStr = JSON.stringify(scores)
-//     localStorage.setItem("scores", scoreStr)
-// }
+// prompt("What is your name?")
+
+// var scoreStr = localStorage.getItem("scores") || "[]"
+// var scores = JSON.parse(scoreStr)
+// console.log(scores)
+// scores.push({name:name, score:score})
+// scoreStr = JSON.stringify(scores)
+// localStorage.setItem("scores", scoreStr)
