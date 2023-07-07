@@ -21,7 +21,8 @@ main {
 }
 
 .start-box,
-.question-box {
+.question-box,
+.scoreboard {
     border: 3px solid black;
     padding: 4rem;
     margin-top: 8rem;
@@ -47,29 +48,21 @@ main {
     transform: translateY(3px);
 }
 
-.button-1,
-.button-2,
-.button-3,
-.button-4 {
+.choices {
     display: flex;
     flex-direction: column;
     width: 10rem;
     height: 3rem;
     margin-bottom: 3rem;
     box-shadow: 0 4px grey;
+    border-radius: 5px;
 }
 
-.button-1:hover,
-.button-2:hover,
-.button-3:hover,
-.button-4:hover {
+.choices:hover {
     background-color: rgb(248, 211, 186);
 }
 
-.button-1:active,
-.button-2:active,
-.button-3:active,
-.button-4:active {
+.choices:active {
     background-color: rgb(248, 211, 186);
     box-shadow: 0 2px grey;
     transform: translateY(3px);
