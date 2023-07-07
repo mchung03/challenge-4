@@ -9,7 +9,6 @@ function start() {
     startBox.classList.add("hidden");
     questionBox.classList.remove("hidden");
     setTime();
-    showQuestion(questions);
 }
 
 var questions = [
@@ -38,7 +37,7 @@ var questions = [
         choices: [".join", ".concat", ".pop", ".add"],
         answer: 0
     }
-]
+];
 
 // Switches to screen with first question
 // Array for each question
@@ -49,7 +48,7 @@ var questions = [
 
 // Timer going
 // If timer reaches 0 or if all questions are answered, game over screen
-var timeEl = document.querySelector(".timer")
+var timeEl = document.querySelector(".timer");
 var mainEl = document.getElementById("seconds");
 
 var secondsLeft = 60;
@@ -68,13 +67,20 @@ function setTime() {
 
 function sendMessage() {
     alert("You ran out of time!")
+    confirm("Would you like to be added to the leaderboard?"); {
+        if(confirm === true) {
+            // highScore()
+        }
+    }
 }
 
 // High score screen
 // Enter initials and submit button
 // function highScore() {
-//     var name = prompt("What is your name?")
-//     var score = 80;
+//     var name = prompt();
+//     var score = secondsLeft;
+
+//     prompt("What is your name?")
 
 //     var scoreStr = localStorage.getItem("scores") || "[]"
 //     var scores = JSON.parse(scoreStr)

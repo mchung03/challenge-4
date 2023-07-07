@@ -22,7 +22,7 @@ main {
 
 .start-box,
 .question-box,
-.scoreboard {
+.leaderboard {
     border: 3px solid black;
     padding: 4rem;
     margin-top: 8rem;
