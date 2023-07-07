@@ -1,16 +1,3 @@
-// Start quiz and timer when button is clicked
-// Switch start box screen to question box screen
-var startButton = document.querySelector("#start-button");
-var startBox = document.querySelector("#start-box");
-var questionBox = document.querySelector("#question-box");
-
-startButton.addEventListener("click", start)
-function start() {
-    startBox.classList.add("hidden");
-    questionBox.classList.remove("hidden");
-    setTime();
-}
-
 var questions = [
     {
         question: "To make a folder in Git Bash, the command is: ",
@@ -39,9 +26,28 @@ var questions = [
     }
 ];
 
+var startButton = document.querySelector("#start-button");
+var startBox = document.querySelector("#start-box");
+var questionBox = document.querySelector("#question-box");
+var questionText = document.querySelector(".question-text");
+var questionNumber = document.querySelector(".question-number");
+var choicesButtons = document.querySelectorAll(".choices");
+var currentQuestionIndex = 0;
+
+startButton.addEventListener("click", start)
+function start() {
+    startBox.classList.add("hidden");
+    questionBox.classList.remove("hidden");
+    // displayQuestion();
+    setTime();
+}
+
 // Switches to screen with first question
 // Array for each question
-
+function displayQuestion() {
+    questionNumber.textContent = 
+    questionText.textContent = 
+}
 
 //If answer right, move on to next question
 //If answer wrong, subtract 5 seconds
