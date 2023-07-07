@@ -16,21 +16,20 @@
         <div class="title">
             <h2>Javascript Quiz</h2>
         </div>
-        <div class="timer">
-            <div class="seconds"></div>
-            <h3>Time: </h3>
-        </div>
+        <h2 class="timer" style="text-align: right;">
+        <div id="seconds"></div>
+        </h2>
     </header>
 
     <main>
         <div class="box">
-            <div class="start-box">
+            <div class="start-box" id="start-box">
                 <div class="explanation">
                     <h3>Complete 5 questions about HTML, CSS, and Javascript. Answer correctly to move on. If you answer incorrectly, your timer will get subtracted by 5 seconds. Good luck!</h3>
                 </div>
-                <button class="start-button">Start</button>
+                <button class="start-button" id="start-button">Start</button>
             </div>
-            <div class="question-box">
+            <div class="question-box hidden" id="question-box">
                 <div class="question-number">
                     <h3>Question &#35; &#58;</h3>
                 </div>
@@ -48,5 +47,7 @@
     <footer>
         <h4>Made with HTML, CSS, and Javascript! :&#41;</h4>
     </footer>
+
+    <script src="./assets/js/style.js"></script>
 </body>
 </html>

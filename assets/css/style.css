@@ -16,6 +16,10 @@ main {
     font-size: 35px;
 }
 
+.hidden {
+    display: none;
+}
+
 .start-box,
 .question-box {
     border: 3px solid black;
