@@ -45,8 +45,8 @@ function start() {
 // Switches to screen with first question
 // Array for each question
 // function displayQuestion() {
-//     questionNumber.textContent = 
-//     questionText.textContent = 
+//     questionNumber.textContent = "Question #" + (currentQuestionIndex + 1);
+//     questionText.textContent = questions[0];
 // }
 
 //If answer right, move on to next question
@@ -57,7 +57,8 @@ function start() {
 var timeEl = document.querySelector(".timer");
 var mainEl = document.getElementById("seconds");
 
-var secondsLeft = 60;
+// Remember to set back to 60 for resubmission
+var secondsLeft = 10;
 
 function setTime() {
     var timerInterval = setInterval(function() {
