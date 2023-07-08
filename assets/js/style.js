@@ -1,28 +1,28 @@
 var questions = [
     {
         question: "To make a folder in Git Bash, the command is: ",
-        choices: ["cd", "touch", "mkdir", "git mkdir"],
-        answer: 2
+        choices: ["A: cd", "B: touch", "C: mkdir", "D: git mkdir"],
+        answer: "C: mkdir"
     },
     {
         question: "Which of the following flexbox commands moves elements vertically?",
-        choices: ["justify-content", "flex-direction", "flex-direction", "align-items"],
-        answer: 3
+        choices: ["A: justify-content", "B: flex-direction", "C: flex-direction", "D: align-items"],
+        answer: "D: align-items"
     },
     {
         question: "To call a function, you need",
-        choices: ["Just the name", "Parentheses", "Brackets", "Quotation Marks"],
-        answer: 1
+        choices: ["A: Just the name", "B: Parentheses", "C: Brackets", "D: Quotation Marks"],
+        answer: "B: Parentheses"
     },
     {
         question: 'What is the notation for "and"?',
-        choices: ["||", "+=", "&&", '"and"'],
-        answer: 2
+        choices: ["A: ||", "B: +=", "C: &&", 'D: "and"'],
+        answer: "C: &&"
     },
     {
         question: "Which property combines indexes into one string?",
-        choices: [".join", ".concat", ".pop", ".add"],
-        answer: 0
+        choices: ["A: .join", "B: .concat", "C: .pop", "D: .add"],
+        answer: "A: .join"
     }
 ];
 
@@ -31,34 +31,71 @@ var startBox = document.querySelector("#start-box");
 var questionBox = document.querySelector("#question-box");
 var questionText = document.querySelector(".question-text");
 var questionNumber = document.querySelector(".question-number");
+var leaderboard = document.querySelector(".leaderboard-box")
 var choicesButtons = document.querySelectorAll(".choices");
 var currentQuestionIndex = 0;
+var checkAnswer = document.querySelector("#check-answer");
+var question = document.querySelector("#question")
 
 startButton.addEventListener("click", start)
 function start() {
     startBox.classList.add("hidden");
     questionBox.classList.remove("hidden");
-    // displayQuestion();
+    displayQuestion();
     setTime();
 }
 
 // Switches to screen with first question
 // Array for each question
-// function displayQuestion() {
-//     questionNumber.textContent = "Question #" + (currentQuestionIndex + 1);
-//     questionText.textContent = questions[0];
-// }
+function displayQuestion() {
+    // questionNumber.textContent = "Question #" + (currentQuestionIndex + 1);
+    // questionText.textContent = questions[0];
+    if(currentQuestionIndex < 5 && secondsLeft > 0) {
+    questionText.textContent = questions[currentQuestionIndex].question;
+    for(var i = 0; i < 4; i++) {
+        choicesButtons[i].textContent = questions[currentQuestionIndex].choices[i]
+    }
+    } else {
+        questionBox.classList.add("hidden");
+        checkAnswer.classList.add("hidden");
+        // showPrompt()
+    }
+}
+question.addEventListener("click", e => 
+
+{console.log(e.target)
+    checkAnswerFunc(e, questions[currentQuestionIndex].answer)
+    currentQuestionIndex++
+    displayQuestion()
+})
 
 //If answer right, move on to next question
 //If answer wrong, subtract 5 seconds
+function checkAnswerFunc(event, answer) {
+    if(event.target.innerText === answer) {
+        checkAnswer.textContent = "Correct"
+    } else {
+        checkAnswer.textContent = "Wrong";
+        secondsLeft;
+    }
+}
+
+function showPrompt() {
+    
+    // questionBox.classList.add("hidden");
+    // checkAnswer.classList.add("hidden");
+   ()=>
+   { var initals = prompt("Please enter your initials");
+   leaderboard.classList.remove("hidden");}
+
+}
 
 // Timer going
 // If timer reaches 0 or if all questions are answered, game over screen
 var timeEl = document.querySelector(".timer");
 var mainEl = document.getElementById("seconds");
 
-// Remember to set back to 60 for resubmission
-var secondsLeft = 10;
+var secondsLeft = 30;
 
 function setTime() {
     var timerInterval = setInterval(function() {
