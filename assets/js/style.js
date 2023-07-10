@@ -32,6 +32,7 @@ var questionBox = document.querySelector("#question-box");
 var questionText = document.querySelector(".question-text");
 var questionNumber = document.querySelector(".question-number");
 var leaderboard = document.querySelector("#leaderboard")
+var leaderboardScore = document.querySelector(".leaderboard-title")
 var choicesButtons = document.querySelectorAll(".choices");
 var currentQuestionIndex = 0;
 var checkAnswer = document.querySelector("#check-answer");
@@ -77,8 +78,9 @@ function displayQuestion() {
     } else {
         questionBox.classList.add("hidden");
         checkAnswer.classList.add("hidden");
-        showPrompt()
-        leaderboard.classList.remove("hidden")
+        clearInterval(timerInterval);
+        showPrompt();
+        leaderboard.classList.remove("hidden");
     }
 }
 question.addEventListener("click", e => 
@@ -126,4 +128,5 @@ function highScore(initials) {
 
 function displayScores () {
     var scoreStr = JSON.parse(localStorage.getItem("scores"))
+    
 }
