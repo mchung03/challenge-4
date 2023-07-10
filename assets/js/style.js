@@ -58,9 +58,12 @@ function setTime() {
         secondsLeft--;
         timeEl.textContent = "Time: " + secondsLeft + " seconds";
 
-        if (secondsLeft === 0) {
+        if(secondsLeft === 0) {
             clearInterval(timerInterval);
             sendMessage();
+        } else if(currentQuestionIndex === questions.length) {
+            clearInterval(timerInterval);
+            showPrompt;
         }
     }, 1000);
 }
@@ -78,7 +81,6 @@ function displayQuestion() {
     } else {
         questionBox.classList.add("hidden");
         checkAnswer.classList.add("hidden");
-        clearInterval(timerInterval);
         showPrompt();
         leaderboard.classList.remove("hidden");
     }
@@ -128,5 +130,4 @@ function highScore(initials) {
 
 function displayScores () {
     var scoreStr = JSON.parse(localStorage.getItem("scores"))
-    
 }
