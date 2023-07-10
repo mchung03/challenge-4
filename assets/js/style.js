@@ -31,7 +31,7 @@ var startBox = document.querySelector("#start-box");
 var questionBox = document.querySelector("#question-box");
 var questionText = document.querySelector(".question-text");
 var questionNumber = document.querySelector(".question-number");
-var leaderboard = document.querySelector(".leaderboard-box")
+var leaderboard = document.querySelector("#leaderboard")
 var choicesButtons = document.querySelectorAll(".choices");
 var currentQuestionIndex = 0;
 var checkAnswer = document.querySelector("#check-answer");
@@ -43,51 +43,6 @@ function start() {
     questionBox.classList.remove("hidden");
     displayQuestion();
     setTime();
-}
-
-// Switches to screen with first question
-// Array for each question
-function displayQuestion() {
-    // questionNumber.textContent = "Question #" + (currentQuestionIndex + 1);
-    // questionText.textContent = questions[0];
-    if(currentQuestionIndex < 5 && secondsLeft > 0) {
-    questionText.textContent = questions[currentQuestionIndex].question;
-    for(var i = 0; i < 4; i++) {
-        choicesButtons[i].textContent = questions[currentQuestionIndex].choices[i]
-    }
-    } else {
-        questionBox.classList.add("hidden");
-        checkAnswer.classList.add("hidden");
-        // showPrompt()
-    }
-}
-question.addEventListener("click", e => 
-
-{console.log(e.target)
-    checkAnswerFunc(e, questions[currentQuestionIndex].answer)
-    currentQuestionIndex++
-    displayQuestion()
-})
-
-//If answer right, move on to next question
-//If answer wrong, subtract 5 seconds
-function checkAnswerFunc(event, answer) {
-    if(event.target.innerText === answer) {
-        checkAnswer.textContent = "Correct"
-    } else {
-        checkAnswer.textContent = "Wrong";
-        secondsLeft;
-    }
-}
-
-function showPrompt() {
-    
-    // questionBox.classList.add("hidden");
-    // checkAnswer.classList.add("hidden");
-   ()=>
-   { var initals = prompt("Please enter your initials");
-   leaderboard.classList.remove("hidden");}
-
 }
 
 // Timer going
@@ -109,26 +64,66 @@ function setTime() {
     }, 1000);
 }
 
+// Switches to screen with first question
+// Array for each question
+function displayQuestion() {
+    // questionNumber.textContent = "Question #" + (currentQuestionIndex + 1);
+    // questionText.textContent = questions[0];
+    if(currentQuestionIndex < 5 && secondsLeft > 0) {
+    questionText.textContent = questions[currentQuestionIndex].question;
+    for(var i = 0; i < 4; i++) {
+        choicesButtons[i].textContent = questions[currentQuestionIndex].choices[i]
+    }
+    } else {
+        questionBox.classList.add("hidden");
+        checkAnswer.classList.add("hidden");
+        showPrompt()
+        leaderboard.classList.remove("hidden")
+    }
+}
+question.addEventListener("click", e => 
+
+{console.log(e.target)
+    checkAnswerFunc(e, questions[currentQuestionIndex].answer)
+    currentQuestionIndex++
+    displayQuestion()
+})
+
+//If answer right, move on to next question
+//If answer wrong, subtract 5 seconds
+function checkAnswerFunc(event, answer) {
+    if(event.target.innerText === answer) {
+        checkAnswer.textContent = "Correct"
+    } else {
+        checkAnswer.textContent = "Wrong -5 seconds";
+        secondsLeft--;
+        secondsLeft--;
+        secondsLeft--;
+        secondsLeft--;
+    }
+}
+
+function showPrompt() {
+    var initials = prompt("Please enter your initials");
+    highScore(initials);
+}
+
 function sendMessage() {
     alert("You ran out of time!")
-    confirm("Would you like to be added to the leaderboard?"); {
-        if(confirm == true) {
-            // highScore()
-        }
-    }
 }
 
 // High score screen
 // Enter initials and submit button
+function highScore(initials) {
+    var score = secondsLeft;
+    var scoreStr = JSON.parse(localStorage.getItem("scores")) || []
 
-// var name = prompt();
-// var score = secondsLeft;
+    console.log(score)
+    scoreStr.push({score, initials})
+    scoreStr = JSON.stringify(scoreStr)
+    localStorage.setItem("scores", scoreStr)
+}
 
-// prompt("What is your name?")
-
-// var scoreStr = localStorage.getItem("scores") || "[]"
-// var scores = JSON.parse(scoreStr)
-// console.log(scores)
-// scores.push({name:name, score:score})
-// scoreStr = JSON.stringify(scores)
-// localStorage.setItem("scores", scoreStr)
+function displayScores () {
+    var scoreStr = JSON.parse(localStorage.getItem("scores"))
+}
