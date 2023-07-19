@@ -31,4 +31,6 @@ w3schools: https://www.w3schools.com/css/css3_buttons.asp
 
 Learning Assistant Jerromy
 
-TA Zubair Shaikh
+Tutor Zubair Shaikh
+
+Tutor Joem Casusi
