@@ -33,10 +33,12 @@ var questionText = document.querySelector(".question-text");
 var questionNumber = document.querySelector(".question-number");
 var leaderboard = document.querySelector("#leaderboard")
 var leaderboardScore = document.querySelector(".leaderboard-title")
+var leaderboardBox = document.querySelector('.leaderboard-box');
 var choicesButtons = document.querySelectorAll(".choices");
 var currentQuestionIndex = 0;
 var checkAnswer = document.querySelector("#check-answer");
 var question = document.querySelector("#question")
+var score = document.querySelector('#score')
 
 startButton.addEventListener("click", start)
 function start() {
@@ -63,7 +65,6 @@ function setTime() {
             sendMessage();
         } else if(currentQuestionIndex === questions.length) {
             clearInterval(timerInterval);
-            showPrompt;
         }
     }, 1000);
 }
@@ -83,6 +84,7 @@ function displayQuestion() {
         checkAnswer.classList.add("hidden");
         showPrompt();
         leaderboard.classList.remove("hidden");
+        displayScores();
     }
 }
 question.addEventListener("click", e => 
@@ -127,7 +129,12 @@ function highScore(initials) {
     scoreStr = JSON.stringify(scoreStr)
     localStorage.setItem("scores", scoreStr)
 }
-
-function displayScores () {
-    var scoreStr = JSON.parse(localStorage.getItem("scores"))
+  
+function displayScores() {
+    var savedScores = JSON.parse(localStorage.getItem("scores")) || []
+    for(var i = 0; i < savedScores.length; i++) {
+        var newLi = document.createElement('li');
+        newLi.textContent = savedScores[i].initials + " - " + savedScores[i].score
+        leaderboardBox.append(newLi)
+    }
 }
